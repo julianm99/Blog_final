@@ -1,0 +1,27 @@
+{% extends "templates/inicio.html" %}
+        {% load static %}
+{% block Titulo %} 
+                            
+  LISTA DE USUARIOS                          
+   
+  {% endblock %}  
+
+    {% if usuarios %}
+    {% block formulario %}
+    {% for i in usuarios %}
+    <h4> {{i.nombre}} ,  {{i.apellido}}  ,    {{i.profesion}}        </h4>
+    <button>
+      <a class="btn btn-success" href="{% url 'borrar_usuario' id.nombre %}"> Eliminar </a>
+      <a class="btn btn-success" href="{% url 'editar_usuario' id.nombre %}"> Editar </a>
+      </button>
+    {% endfor %}   
+
+
+    
+{% else %}  
+
+NO SE ENCONTRARON LOS USUARIOS
+
+{% endif %}    
+
+<a class="btn btn-success" href="{% url 'crear_usuario' %}"> Agregar Usuario </a>

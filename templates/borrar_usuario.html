@@ -1,0 +1,19 @@
+{% extends "Appcoder/inicio.html" %}
+        {% load static %}
+{% block Titulo %} 
+                            
+  BORRAR USUARIO                         
+   
+  {% endblock %}     
+    
+    {% block formulario %}
+<form  action="/borrar_usuario/"     method="POST"                >{% csrf_token %}
+
+        ¿ Seguro que deseas borrar  "{{ object }}"    ?    
+
+<input  type="submit"               value="Borrar"        >
+</form>
+
+
+
+    {% endblock %}    
